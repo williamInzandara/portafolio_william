@@ -1,12 +1,17 @@
+"use client"
+
 import { Github, Mail, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/contexts/language-context"
 
 export function AboutMe() {
+  const { t } = useLanguage()
+
   return (
     <section id="sobre-mi" className="bg-card py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1220px] px-4 md:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <p className="mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-primary md:mb-10">
-          | Sobre mi
+          {t.aboutMe.sectionLabel}
         </p>
 
         <div className="grid items-center gap-8 md:grid-cols-[160px_1fr] md:gap-10">
@@ -16,7 +21,7 @@ export function AboutMe() {
               style={{ clipPath: "polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%)" }}
               aria-label="Placeholder de foto"
             >
-              MI FOTO
+              {t.aboutMe.myPhoto}
             </div>
           </div>
 
@@ -25,7 +30,7 @@ export function AboutMe() {
               William Darío Inzandara Lagos
             </h2>
             <p className="mb-4 font-mono text-sm text-cyan-600/85 sm:text-base md:text-[22px]">
-              {"// Desarrollador Full Stack & Diseñador de Interfaces"}
+              {t.aboutMe.jobTitle}
             </p>
 
             <div className="mb-5 flex flex-wrap gap-2">
@@ -57,9 +62,8 @@ export function AboutMe() {
             </div>
 
             <p className="max-w-4xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              <span className="font-semibold text-foreground">Sobre mí:</span> soy un desarrollador con pasión por
-              la tecnología y el diseño. Me especializo en crear aplicaciones web y móviles modernas, con experiencia
-              en múltiples lenguajes y frameworks. Siempre en busca de nuevos retos y aprendizajes constantes.
+              <span className="font-semibold text-foreground">{t.aboutMe.aboutLabel}</span>{" "}
+              {t.aboutMe.aboutText}
             </p>
           </div>
         </div>

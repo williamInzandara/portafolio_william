@@ -1,25 +1,56 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Download, User } from "lucide-react"
+import { Download } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden md:border-x md:border-primary/35 bg-[radial-gradient(circle_at_24%_58%,rgba(123,97,255,0.18),transparent_30%),radial-gradient(circle_at_57%_43%,rgba(255,255,255,0.9),transparent_45%),linear-gradient(104deg,#f2eff9_0%,#eff2fa_100%)] pt-20 md:pt-24">
-      <div className="mx-auto w-full max-w-[1220px] px-4 pb-12 pt-12 md:pb-14 md:pt-16">
-        <div className="grid items-center gap-8 md:gap-10 md:grid-cols-2">
-          <div className="order-2 md:order-1 md:pl-6">
-            <div className="mx-auto mt-2 flex h-[190px] w-[190px] items-center justify-center rounded-full border-[3px] border-primary/75 bg-background/45 shadow-[0_0_70px_rgba(124,104,255,0.25)] sm:h-[220px] sm:w-[220px] md:mx-0 md:mt-16 md:h-[265px] md:w-[265px]">
-              <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                <User className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11" strokeWidth={1.8} />
-                <span className="text-sm tracking-[0.08em] sm:text-base md:text-[20px]">MI FOTO</span>
-              </div>
+    <section className="relative flex min-h-screen items-center overflow-hidden md:border-x md:border-primary/35 hero-gradient pt-20 md:pt-24">
+      <div className="mx-auto w-full max-w-6xl px-4 pb-12 pt-12 md:pb-14 md:pt-16">
+
+        <div className="grid items-center gap-8 md:grid-cols-2">
+
+          {/* FOTO SOLO DESKTOP */}
+          <div className="hidden md:flex justify-center md:justify-start md:pl-6">
+            <div className="relative h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 overflow-hidden rounded-full border-4 border-primary/75 shadow-lg">
+              <Image
+                src="/foto-perfil-william.jpg"
+                alt="William Inzandara"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
 
-          <div className="order-1 md:order-2">
-            <p className="mb-4 font-mono text-sm text-cyan-600/85 md:text-base">{"// Full Stack Developer"}</p>
+          {/* TEXTO */}
+          <div className="text-center md:text-left">
+
+            {/* ROLE */}
+            <p className="mb-4 font-mono text-sm text-cyan-600/85 md:text-base">
+              {t.hero.role}
+            </p>
+
+            {/* FOTO SOLO MOBILE */}
+            <div className="flex justify-center mb-6 md:hidden">
+              <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-primary/75 shadow-lg">
+                <Image
+                  src="/foto-perfil-william.jpg"
+                  alt="William Inzandara"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* TITULO */}
             <h1 className="mb-5 text-4xl font-black leading-[0.97] text-foreground sm:text-5xl md:text-7xl lg:text-8xl">
-              <span>Hola, soy</span>
+              <span>{t.hero.greeting}</span>
               <br />
               <span className="text-primary">William</span>
               <br />
@@ -29,34 +60,51 @@ export function Hero() {
               <br />
               <span className="text-primary">Lagos</span>
             </h1>
-            <p className="mb-8 max-w-[690px] text-base leading-relaxed text-muted-foreground md:text-lg">
-              Desarrollador apasionado por crear interfaces modernas y sistemas robustos.
-              Especializado en Next.js, TypeScript y Flutter.
+
+            {/* DESCRIPCIÓN */}
+            <p className="mb-8 max-w-[690px] mx-auto md:mx-0 text-[16px] md:text-lg text-muted-foreground">
+              {t.hero.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <Button asChild className="h-10 w-full rounded-[4px] bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 sm:h-11 sm:w-auto sm:px-8 sm:text-base">
-                <Link href="#contacto">Contactarme</Link>
-              </Button>
+            {/* BOTONES */}
+            <div className="flex justify-center md:justify-start gap-2 flex-nowrap overflow-x-auto">
+
               <Button
-                variant="outline"
                 asChild
-                className="h-10 w-full rounded-[4px] border-primary/55 bg-background/30 px-6 text-sm font-semibold text-foreground/90 hover:bg-background/45 sm:h-11 sm:w-auto sm:px-8 sm:text-base"
+                className="h-9 md:h-11 px-4 md:px-8 text-xs md:text-base whitespace-nowrap"
               >
-                <Link href="#proyectos">Ver proyectos</Link>
-              </Button>
-              <Button
-                variant="outline"
-                asChild
-                className="h-10 w-full rounded-[4px] border-primary/55 bg-background/30 px-6 text-sm font-semibold text-primary hover:bg-background/45 sm:h-11 sm:w-auto sm:px-8 sm:text-base"
-              >
-                <Link href="/cv-william-inzandara.pdf" target="_blank">
-                  <Download className="h-5 w-5" />
-                  Descargar CV
+                <Link href="#contacto">
+                  {t.hero.contactBtn}
                 </Link>
               </Button>
+
+              <Button
+                variant="outline"
+                asChild
+                className="h-9 md:h-11 px-4 md:px-8 text-xs md:text-base whitespace-nowrap"
+              >
+                <Link href="#proyectos">
+                  {t.hero.projectsBtn}
+                </Link>
+              </Button>
+
+              <Button
+                variant="outline"
+                asChild
+                className="h-9 md:h-11 px-4 md:px-8 text-xs md:text-base whitespace-nowrap"
+              >
+                <Link href="/cv-william-inzandara.pdf" target="_blank">
+                  <span className="flex items-center gap-2">
+                    <Download className="h-4 w-4 md:h-5 md:w-5" />
+                    {t.hero.cvBtn}
+                  </span>
+                </Link>
+              </Button>
+
             </div>
+
           </div>
+
         </div>
       </div>
     </section>

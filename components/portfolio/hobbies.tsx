@@ -3,36 +3,25 @@
 import Image from "next/image"
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
-const hobbies = [
-  {
-    title: "Nombre del Hobby 1",
-    description:
-      "Descripción del hobby: actividad que disfruto en mi tiempo libre y que me ayuda a mantener el equilibrio entre trabajo y vida personal.",
-    images: ["/placeholder.jpg", "/placeholder-user.jpg", "/placeholder-logo.png"],
-  },
-  {
-    title: "Nombre del Hobby 2",
-    description:
-      "Descripción: pasión creativa que complementa mis habilidades técnicas y me permite explorar nuevas perspectivas en el diseño.",
-    images: ["/placeholder-user.jpg", "/placeholder.jpg", "/placeholder-logo.png"],
-  },
-  {
-    title: "Nombre del Hobby 3",
-    description:
-      "Descripción: actividad que fortalece mis habilidades cognitivas y me mantiene actualizado con las últimas tendencias tecnológicas.",
-    images: ["/placeholder-logo.png", "/placeholder.jpg", "/placeholder-user.jpg"],
-  },
+const hobbyImages = [
+  ["/placeholder.jpg", "/placeholder-user.jpg", "/placeholder-logo.png"],
+  ["/placeholder-user.jpg", "/placeholder.jpg", "/placeholder-logo.png"],
+  ["/placeholder-logo.png", "/placeholder.jpg", "/placeholder-user.jpg"],
 ]
 
 export function Hobbies() {
+  const { t } = useLanguage()
+  const hobbies = t.hobbies.items
+
   const [currentImages, setCurrentImages] = useState(() => hobbies.map(() => 0))
   const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string } | null>(null)
 
   const changeImage = (hobbyIndex: number, direction: "prev" | "next") => {
     setCurrentImages((prev) => {
       const next = [...prev]
-      const totalImages = hobbies[hobbyIndex].images.length
+      const totalImages = hobbyImages[hobbyIndex].length
       const delta = direction === "next" ? 1 : -1
       next[hobbyIndex] = (next[hobbyIndex] + delta + totalImages) % totalImages
       return next
@@ -41,8 +30,8 @@ export function Hobbies() {
 
   return (
     <section id="hobbies" className="bg-background py-20 md:py-24">
-      <div className="mx-auto w-full max-w-[1220px] px-4 md:px-6">
-        <p className="mb-6 text-2xl text-primary md:text-3xl">Hobby</p>
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
+        <p className="mb-6 text-2xl text-primary md:text-3xl">{t.hobbies.sectionTitle}</p>
 
         <div className="overflow-hidden rounded-[8px] border border-primary/35 bg-secondary/20">
           {hobbies.map((hobby, index) => (
@@ -68,15 +57,15 @@ export function Hobbies() {
                   type="button"
                   onClick={() =>
                     setExpandedImage({
-                      src: hobby.images[currentImages[index]],
+                      src: hobbyImages[index][currentImages[index]],
                       alt: `${hobby.title} imagen ${currentImages[index] + 1}`,
                     })
                   }
-                  aria-label={`Ampliar imagen de ${hobby.title}`}
+                  aria-label={`${t.hobbies.expandImage} ${hobby.title}`}
                   className="relative min-h-[170px] w-full cursor-zoom-in md:min-h-[140px]"
                 >
                   <Image
-                    src={hobby.images[currentImages[index]]}
+                    src={hobbyImages[index][currentImages[index]]}
                     alt={`${hobby.title} imagen ${currentImages[index] + 1}`}
                     fill
                     className="object-cover"
@@ -87,7 +76,7 @@ export function Hobbies() {
                   <button
                     type="button"
                     onClick={() => changeImage(index, "prev")}
-                    aria-label={`Imagen anterior de ${hobby.title}`}
+                    aria-label={`${t.hobbies.prevImage} ${hobby.title}`}
                     className="inline-flex h-8 w-8 items-center justify-center rounded-[4px] border border-primary/35 bg-background text-primary transition-colors hover:bg-background/80"
                   >
                     <ChevronLeft className="h-5 w-5" />
@@ -96,7 +85,7 @@ export function Hobbies() {
                   <button
                     type="button"
                     onClick={() => changeImage(index, "next")}
-                    aria-label={`Siguiente imagen de ${hobby.title}`}
+                    aria-label={`${t.hobbies.nextImage} ${hobby.title}`}
                     className="inline-flex h-8 w-8 items-center justify-center rounded-[4px] border border-primary/35 bg-background text-primary transition-colors hover:bg-background/80"
                   >
                     <ChevronRight className="h-5 w-5" />
@@ -117,7 +106,7 @@ export function Hobbies() {
           <button
             type="button"
             onClick={() => setExpandedImage(null)}
-            aria-label="Cerrar imagen ampliada"
+            aria-label={t.hobbies.closeImage}
             className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/25 bg-black/40 text-white"
           >
             <X className="h-5 w-5" />

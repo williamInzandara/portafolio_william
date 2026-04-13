@@ -7,95 +7,75 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Github, Mail, Phone, Linkedin, Send } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 const contactInfo = [
-  {
-    icon: Github,
-    label: "github.com/williaminzandara",
-    href: "https://github.com/williaminzandara",
-  },
-  {
-    icon: Mail,
-    label: "inzandaralagoswilliamdario@gmail.com",
-    href: "mailto:inzandaralagoswilliamdario@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "+57 316 388 6760",
-    href: "tel:+573163886760",
-  },
-  {
-    icon: Linkedin,
-    label: "linkedin.com/in/usuario",
-    href: "https://linkedin.com/in/usuario",
-  },
+  { icon: Github, label: "github.com/williaminzandara", href: "https://github.com/williaminzandara" },
+  { icon: Mail, label: "inzandaralagoswilliamdario@gmail.com", href: "mailto:inzandaralagoswilliamdario@gmail.com" },
+  { icon: Phone, label: "+57 316 388 6760", href: "tel:+573163886760" },
+  { icon: Linkedin, label: "linkedin.com/in/usuario", href: "https://linkedin.com/in/usuario" },
 ]
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const { t } = useLanguage()
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí puedes agregar la lógica para enviar el formulario
     console.log("Form submitted:", formData)
-    alert("¡Mensaje enviado! Te contactaré pronto.")
+    alert(t.contact.successMsg)
     setFormData({ name: "", email: "", message: "" })
   }
 
   return (
     <section id="contacto" className="py-20 bg-card">
-      <div className="mx-auto w-full max-w-[1220px] px-4 md:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
-          CONTACTO
+          {t.contact.title}
         </h2>
-        <p className="text-center text-muted-foreground mb-12">¿Hablamos?</p>
-        
+        <p className="text-center text-muted-foreground mb-12">{t.contact.subtitle}</p>
+
         <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-          {/* Contact Form */}
           <Card className="bg-background border-border">
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    NOMBRE
+                    {t.contact.nameLbl}
                   </label>
                   <Input
                     id="name"
                     type="text"
-                    placeholder="Tu nombre"
+                    placeholder={t.contact.namePlaceholder}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                     className="bg-card border-border"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    CORREO
+                    {t.contact.emailLbl}
                   </label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="tu@correo.com"
+                    placeholder={t.contact.emailPlaceholder}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                     className="bg-card border-border"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    MENSAJE
+                    {t.contact.messageLbl}
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Escribe tu mensaje..."
+                    placeholder={t.contact.messagePlaceholder}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
@@ -103,16 +83,15 @@ export function Contact() {
                     className="bg-card border-border resize-none"
                   />
                 </div>
-                
+
                 <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Enviar mensaje
+                  {t.contact.sendBtn}
                   <Send className="ml-2 h-4 w-4" />
                 </Button>
               </form>
             </CardContent>
           </Card>
 
-          {/* Contact Info */}
           <div className="flex flex-col justify-center space-y-4">
             {contactInfo.map((item, index) => (
               <Link

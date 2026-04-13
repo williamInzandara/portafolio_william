@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Plus, Quote } from "lucide-react"
+import { useLanguage } from "@/contexts/language-context"
 
 type Testimonial = {
   quote: string
@@ -15,27 +16,6 @@ type Testimonial = {
   role: string
   image?: string
 }
-
-const initialTestimonials: Testimonial[] = [
-  {
-    quote: "Excelente desarrollador, muy comprometido con los proyectos. Su capacidad para resolver problemas complejos y su atención al detalle son impresionantes.",
-    name: "Juan Díaz",
-    role: "Developer TechCorp",
-    image: "/testimonial-1.jpg",
-  },
-  {
-    quote: "Trabajar con él fue una experiencia increíble. Entrega código limpio, bien documentado y siempre dentro de los plazos acordados.",
-    name: "María López",
-    role: "Project Manager StartupX",
-    image: "/testimonial-2.jpg",
-  },
-  {
-    quote: "Su dominio de Next.js y TypeScript es sobresaliente. Además, tiene excelentes habilidades de comunicación y trabajo en equipo.",
-    name: "Carlos Ruiz",
-    role: "CTO DevAgency",
-    image: "/testimonial-3.jpg",
-  },
-]
 
 const STORAGE_KEY = "portfolio-user-testimonials"
 
@@ -49,16 +29,18 @@ function getInitials(name: string) {
 }
 
 export function Testimonials() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(initialTestimonials)
+  const { t } = useLanguage()
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(() => t.testimonials.initialItems)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [form, setForm] = useState({ name: "", role: "", quote: "" })
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (!saved) {
-      return
-    }
+    setTestimonials(t.testimonials.initialItems)
+  }, [t.testimonials.initialItems])
 
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (!saved) return
     try {
       const parsed = JSON.parse(saved) as Testimonial[]
       if (Array.isArray(parsed) && parsed.length > 0) {
@@ -75,15 +57,10 @@ export function Testimonials() {
 
   const handleAddTestimonial = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
     const name = form.name.trim()
     const role = form.role.trim()
     const quote = form.quote.trim()
-
-    if (!name || !role || !quote) {
-      return
-    }
-
+    if (!name || !role || !quote) return
     const newItem: Testimonial = { name, role, quote }
     setTestimonials((prev) => [newItem, ...prev])
     setForm({ name: "", role: "", quote: "" })
@@ -92,34 +69,32 @@ export function Testimonials() {
 
   return (
     <section id="testimonios" className="py-20 bg-card">
-      <div className="mx-auto w-full max-w-[1220px] px-4 md:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         <div className="mb-12 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">TESTIMONIOS</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{t.testimonials.title}</h2>
 
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button className="inline-flex w-full sm:w-auto items-center gap-2">
                 <Plus className="h-4 w-4" />
-                Agregar testimonio
+                {t.testimonials.addBtn}
               </Button>
             </DialogTrigger>
 
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Agregar un testimonio</DialogTitle>
-                <DialogDescription>
-                  Comparte tu experiencia para que aparezca en esta sección.
-                </DialogDescription>
+                <DialogTitle>{t.testimonials.dialogTitle}</DialogTitle>
+                <DialogDescription>{t.testimonials.dialogDescription}</DialogDescription>
               </DialogHeader>
 
               <form className="space-y-4" onSubmit={handleAddTestimonial}>
                 <div className="space-y-2">
                   <label htmlFor="testimonial-name" className="text-sm font-medium text-foreground">
-                    Nombre
+                    {t.testimonials.nameLbl}
                   </label>
                   <Input
                     id="testimonial-name"
-                    placeholder="Tu nombre"
+                    placeholder={t.testimonials.namePlaceholder}
                     value={form.name}
                     onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
                     required
@@ -128,11 +103,11 @@ export function Testimonials() {
 
                 <div className="space-y-2">
                   <label htmlFor="testimonial-role" className="text-sm font-medium text-foreground">
-                    Cargo o relación
+                    {t.testimonials.roleLbl}
                   </label>
                   <Input
                     id="testimonial-role"
-                    placeholder="Ej. CTO en Empresa X"
+                    placeholder={t.testimonials.rolePlaceholder}
                     value={form.role}
                     onChange={(event) => setForm((prev) => ({ ...prev, role: event.target.value }))}
                     required
@@ -141,11 +116,11 @@ export function Testimonials() {
 
                 <div className="space-y-2">
                   <label htmlFor="testimonial-quote" className="text-sm font-medium text-foreground">
-                    Testimonio
+                    {t.testimonials.quoteLbl}
                   </label>
                   <Textarea
                     id="testimonial-quote"
-                    placeholder="Escribe aquí tu comentario"
+                    placeholder={t.testimonials.quotePlaceholder}
                     value={form.quote}
                     onChange={(event) => setForm((prev) => ({ ...prev, quote: event.target.value }))}
                     required
@@ -153,13 +128,13 @@ export function Testimonials() {
                 </div>
 
                 <Button type="submit" className="w-full">
-                  Publicar testimonio
+                  {t.testimonials.submitBtn}
                 </Button>
               </form>
             </DialogContent>
           </Dialog>
         </div>
-        
+
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="bg-background border-border hover:border-primary/50 transition-colors">
