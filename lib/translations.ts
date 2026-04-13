@@ -19,7 +19,6 @@ export const translations = {
       description: "Desarrollador apasionado por crear interfaces modernas y sistemas robustos. Especializado en Next.js, TypeScript y Flutter.",
       contactBtn: "Contactarme",
       projectsBtn: "Ver proyectos",
-      cvBtn: "Descargar CV",
       myPhoto: "MI FOTO",
     },
     aboutMe: {
@@ -164,7 +163,6 @@ testimonials: {
       description: "Passionate developer creating modern interfaces and robust systems. Specialized in Next.js, TypeScript and Flutter.",
       contactBtn: "Contact me",
       projectsBtn: "View projects",
-      cvBtn: "Download CV",
       myPhoto: "MY PHOTO",
     },
 

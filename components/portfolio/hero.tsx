@@ -3,7 +3,6 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Download } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
@@ -88,18 +87,6 @@ export function Hero() {
                 </Link>
               </Button>
 
-              <Button
-                variant="outline"
-                asChild
-                className="h-9 md:h-11 px-4 md:px-8 text-xs md:text-base whitespace-nowrap"
-              >
-                <Link href="/cv-william-inzandara.pdf" target="_blank">
-                  <span className="flex items-center gap-2">
-                    <Download className="h-4 w-4 md:h-5 md:w-5" />
-                    {t.hero.cvBtn}
-                  </span>
-                </Link>
-              </Button>
 
             </div>
 
