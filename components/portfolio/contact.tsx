@@ -13,7 +13,7 @@ const contactInfo = [
   { icon: Github, label: "github.com/williaminzandara", href: "https://github.com/williaminzandara" },
   { icon: Mail, label: "inzandaralagoswilliamdario@gmail.com", href: "mailto:inzandaralagoswilliamdario@gmail.com" },
   { icon: Phone, label: "+57 316 388 6760", href: "tel:+573163886760" },
-  { icon: Linkedin, label: "linkedin.com/in/usuario", href: "https://linkedin.com/in/usuario" },
+  { icon: Linkedin, label: "https://www.linkedin.com/in/william-inzandara-336048403/", href: "https://www.linkedin.com/in/william-inzandara-336048403/" },
 ]
 
 export function Contact() {
