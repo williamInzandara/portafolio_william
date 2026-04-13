@@ -62,27 +62,26 @@ export const translations = {
   ],
 },
     hobbies: {
-      sectionTitle: "Hobby",
-      closeImage: "Cerrar imagen ampliada",
-      prevImage: "Imagen anterior de",
-      nextImage: "Siguiente imagen de",
-      expandImage: "Ampliar imagen de",
-      items: [
-        {
-          title: "Nombre del Hobby 1",
-          description: "Descripción del hobby: actividad que disfruto en mi tiempo libre y que me ayuda a mantener el equilibrio entre trabajo y vida personal.",
-        },
-        {
-          title: "Nombre del Hobby 2",
-          description: "Descripción: pasión creativa que complementa mis habilidades técnicas y me permite explorar nuevas perspectivas en el diseño.",
-        },
-        {
-          title: "Nombre del Hobby 3",
-          description: "Descripción: actividad que fortalece mis habilidades cognitivas y me mantiene actualizado con las últimas tendencias tecnológicas.",
-        },
-      ],
+  sectionTitle: "INTERESES",
+  items: [
+    {
+      title: "Natación y conexión con la naturaleza",
+      description:
+        "Disfruto nadar en entornos naturales, ya que me permite relajarme, desconectarme del estrés diario y mantener un equilibrio entre bienestar físico y mental.",
     },
-    
+    {
+      title: "Camping y aventuras al aire libre",
+      description:
+        "Me gusta acampar y compartir momentos al aire libre, especialmente en actividades como fogatas y reuniones.",
+    },
+    {
+      title: "Exploración y caminatas",
+      description:
+        "Disfruto caminar y explorar diferentes lugares, especialmente paisajes naturales.",
+    },
+  ],
+},    
+
     testimonials: {
       title: "TESTIMONIOS",
       addBtn: "Agregar testimonio",
@@ -221,26 +220,27 @@ export const translations = {
     },
 
     hobbies: {
-      sectionTitle: "Hobbies",
-      closeImage: "Close expanded image",
-      prevImage: "Previous image of",
-      nextImage: "Next image of",
-      expandImage: "Expand image of",
-      items: [
-        {
-          title: "Hobby Name 1",
-          description: "Hobby description: an activity I enjoy in my free time that helps me maintain a balance between work and personal life.",
-        },
-        {
-          title: "Hobby Name 2",
-          description: "Description: a creative passion that complements my technical skills and lets me explore new perspectives in design.",
-        },
-        {
-          title: "Hobby Name 3",
-          description: "Description: an activity that strengthens my cognitive skills and keeps me up to date with the latest tech trends.",
-        },
-      ],
+  sectionTitle: "INTERESTS",
+  items: [
+    {
+      title: "Swimming & Nature Connection",
+      description:
+        "I enjoy swimming in natural environments as it helps me relax, disconnect from daily stress, and maintain a balance between physical and mental well-being.",
     },
+    {
+      title: "Camping & Outdoor Adventures",
+      description:
+        "I enjoy camping and sharing moments outdoors, especially activities like bonfires and group experiences.",
+    },
+    {
+      title: "Exploration & Hiking",
+      description:
+        "I enjoy walking and exploring different places, especially natural landscapes.",
+    },
+  ],
+},
+
+
     testimonials: {
       title: "TESTIMONIALS",
       addBtn: "Add testimonial",
