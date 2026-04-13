@@ -37,7 +37,7 @@ export function Experience() {
             </div>
           </div>
 
-          {/* Project Experience */}
+   
           <div>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">

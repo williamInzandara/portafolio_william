@@ -109,7 +109,7 @@ testimonials: {
       academicItems: [
         {
           title: "Ingeniería en Software",
-          period: "2022 - 2026",
+          period: "2023 - 2026",
           institution: "Universidad",
           description: "Formación en desarrollo de software, estructuras de datos, bases de datos, redes y diseño de sistemas.",
         },
@@ -117,7 +117,7 @@ testimonials: {
       projectItems: [
         {
           title: "Proyectos universitarios",
-          period: "2022 - 2026",
+          period: "2023 - 2026",
           description: "Desarrollo de aplicaciones y sistemas como parte de la carrera: lógica de negocio, gestión de datos y diseño de interfaces.",
         },
       ],
@@ -258,7 +258,7 @@ testimonials: {
       academicItems: [
         {
           title: "Software Engineering",
-          period: "2022 - 2026",
+          period: "2023 - 2026",
           institution: "University",
           description: "Training in software development, data structures, databases, networking and systems design.",
         },
@@ -266,7 +266,7 @@ testimonials: {
       projectItems: [
         {
           title: "University Projects",
-          period: "2022 - 2026",
+          period: "2023 - 2026",
           description: "Development of applications and systems as part of the degree: business logic, data management and UI design.",
         },
       ],
