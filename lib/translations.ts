@@ -82,36 +82,26 @@ export const translations = {
   ],
 },    
 
-    testimonials: {
-      title: "TESTIMONIOS",
-      addBtn: "Agregar testimonio",
-      dialogTitle: "Agregar un testimonio",
-      dialogDescription: "Comparte tu experiencia para que aparezca en esta sección.",
-      nameLbl: "Nombre",
-      namePlaceholder: "Tu nombre",
-      roleLbl: "Cargo o relación",
-      rolePlaceholder: "Ej. CTO en Empresa X",
-      quoteLbl: "Testimonio",
-      quotePlaceholder: "Escribe aquí tu comentario",
-      submitBtn: "Publicar testimonio",
-      initialItems: [
-        {
-          quote: "Excelente desarrollador, muy comprometido con los proyectos. Su capacidad para resolver problemas complejos y su atención al detalle son impresionantes.",
-          name: "Juan Díaz",
-          role: "Developer TechCorp",
-        },
-        {
-          quote: "Trabajar con él fue una experiencia increíble. Entrega código limpio, bien documentado y siempre dentro de los plazos acordados.",
-          name: "María López",
-          role: "Project Manager StartupX",
-        },
-        {
-          quote: "Su dominio de Next.js y TypeScript es sobresaliente. Además, tiene excelentes habilidades de comunicación y trabajo en equipo.",
-          name: "Carlos Ruiz",
-          role: "CTO DevAgency",
-        },
-      ],
+testimonials: {
+  sectionLabel: "TESTIMONIOS",
+  items: [
+    {
+      quote:
+        "Excelente desarrollador, muy comprometido con los proyectos. Su capacidad para resolver problemas complejos y su atención al detalle son impresionantes.",
+      name: "Khaled Benavides",
     },
+    {
+      quote:
+        "Trabajar con él fue una experiencia increíble. Entrega código limpio, bien documentado y siempre dentro de los plazos acordados.",
+      name: "Diego Ceron",
+    },
+    {
+      quote:
+        "Su dominio de Next.js y TypeScript es sobresaliente. Además, tiene excelentes habilidades de comunicación y trabajo en equipo.",
+      name: "Cristian David",
+    },
+  ],
+},
 
     experience: {
       title: "EXPERIENCIA",
@@ -240,37 +230,29 @@ export const translations = {
   ],
 },
 
-
     testimonials: {
-      title: "TESTIMONIALS",
-      addBtn: "Add testimonial",
-      dialogTitle: "Add a testimonial",
-      dialogDescription: "Share your experience to have it appear in this section.",
-      nameLbl: "Name",
-      namePlaceholder: "Your name",
-      roleLbl: "Role or relationship",
-      rolePlaceholder: "e.g. CTO at Company X",
-      quoteLbl: "Testimonial",
-      quotePlaceholder: "Write your comment here",
-      submitBtn: "Publish testimonial",
-      initialItems: [
-        {
-          quote: "Excellent developer, very committed to projects. His ability to solve complex problems and attention to detail are impressive.",
-          name: "Juan Díaz",
-          role: "Developer TechCorp",
-        },
-        {
-          quote: "Working with him was an incredible experience. He delivers clean, well-documented code always within the agreed deadlines.",
-          name: "María López",
-          role: "Project Manager StartupX",
-        },
-        {
-          quote: "His mastery of Next.js and TypeScript is outstanding. He also has excellent communication and teamwork skills.",
-          name: "Carlos Ruiz",
-          role: "CTO DevAgency",
-        },
-      ],
+  sectionLabel: "TESTIMONIALS",
+  items: [
+    {
+      quote:
+        "Excellent developer, highly committed to projects. His ability to solve complex problems and attention to detail are impressive.",
+      name: "Khaled Benavides",
     },
+    {
+      quote:
+        "Working with him was an incredible experience. He delivers clean, well-documented code and always meets deadlines.",
+      name: "Diego Ceron",
+    },
+    {
+      quote:
+        "His mastery of Next.js and TypeScript is outstanding. He also has excellent communication and teamwork skills.",
+      name: "Cristian David",
+    },
+  ],
+},
+
+
+
     experience: {
       title: "EXPERIENCE",
       academic: "Academic",
