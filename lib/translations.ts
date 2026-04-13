@@ -1,3 +1,5 @@
+import { title } from "process"
+
 export type Lang = 'es' | 'en'
 
 export const translations = {
@@ -40,22 +42,25 @@ export const translations = {
       ],
     },
     projects: {
-      sectionLabel: "| Proyectos",
+    sectionLabel: "PROYECTOS",
       items: [
-        {
-          title: "Nombre del Proyecto 1",
-          description: "Aplicación web desarrollada con Next.js y TypeScript. Implementa autenticación, gestión de estado y consumo de APIs externas.",
-        },
-        {
-          title: "Nombre del Proyecto 2",
-          description: "App móvil con Flutter y Dart para gestión de tareas con notificaciones push, sincronización en tiempo real y soporte offline.",
-        },
-        {
-          title: "Nombre del Proyecto 3",
-          description: "API REST con Java y Spring Boot. Base de datos relacional con SQL, autenticación JWT y documentación con Swagger.",
-        },
-      ],
+      {
+      title: "Control de Finanzas Personales",
+      description:
+        "Aplicación web para la gestión de finanzas personales que permite registrar ingresos y gastos, visualizar balances en tiempo real y organizar transacciones por categorías. Incluye panel interactivo, historial de movimientos y control detallado del flujo de dinero.",
+      },
+      {
+      title: "GraFyApi — Graficador de Cálculo Multivariable",
+      description:
+        "Aplicación web interactiva para la visualización de funciones matemáticas en 3D. Permite explorar superficies como paraboloides, ondas y funciones personalizadas en tiempo real, facilitando el análisis del cálculo multivariable de forma visual e intuitiva.",     
+      },
+      {
+      title: "Casa Segura — Sistema de Monitoreo con Cámaras",
+      description:
+        "Aplicación desarrollada en Flutter orientada a la seguridad del hogar mediante monitoreo de cámaras y sistema de notificaciones inteligentes. Detecta objetos o posibles intrusos y envía alertas en tiempo real al usuario.",
     },
+  ],
+},
     hobbies: {
       sectionTitle: "Hobby",
       closeImage: "Cerrar imagen ampliada",
@@ -77,6 +82,7 @@ export const translations = {
         },
       ],
     },
+    
     testimonials: {
       title: "TESTIMONIOS",
       addBtn: "Agregar testimonio",
@@ -107,6 +113,7 @@ export const translations = {
         },
       ],
     },
+
     experience: {
       title: "EXPERIENCIA",
       academic: "Académica",
@@ -161,6 +168,7 @@ export const translations = {
       experiencia: "Experience",
       contacto: "Contact",
     },
+
     hero: {
       greeting: "Hi, I'm",
       role: "// Full Stack Developer",
@@ -170,6 +178,7 @@ export const translations = {
       cvBtn: "Download CV",
       myPhoto: "MY PHOTO",
     },
+
     aboutMe: {
       sectionLabel: "ABOUT ME",
       jobTitle: "// Full Stack Developer & UI Designer",
@@ -177,6 +186,7 @@ export const translations = {
       aboutText: "I'm a developer with a passion for technology and design. I specialize in building modern web and mobile applications, with experience in multiple languages and frameworks. Always looking for new challenges and continuous learning.",
       myPhoto: "MY PHOTO",
     },
+
     languages: {
       sectionLabel: "LANGUAGES",
       items: [
@@ -188,23 +198,28 @@ export const translations = {
         { name: "Java", description: "Object-oriented programming, Spring Boot, JPA and REST services." },
       ],
     },
+
     projects: {
-      sectionLabel: "| Projects",
-      items: [
-        {
-          title: "Project Name 1",
-          description: "Web application built with Next.js and TypeScript. Implements authentication, state management and external API consumption.",
+    sectionLabel: "PROJECTS",
+    items: [
+      {
+        title: "Personal Finance Manager",
+        description:
+          "Web application for managing personal finances, allowing users to track income and expenses, visualize real-time balances, and organize transactions by categories. Includes an interactive dashboard and detailed financial tracking.",
+      },
+      {
+        title: "GraFyApi — Multivariable Calculus Grapher",
+        description:
+          "Interactive web application for visualizing 3D mathematical functions. Enables exploration of surfaces such as paraboloids, waves, and custom equations in real time, making multivariable calculus analysis more intuitive.",
+      },
+      {
+        title: "Smart Home Security — Camera Monitoring System",
+        description:
+          "Flutter-based application focused on home security through camera monitoring and intelligent notifications. Detects objects or potential intruders and sends real-time alerts to the user.",
         },
-        {
-          title: "Project Name 2",
-          description: "Mobile app with Flutter and Dart for task management with push notifications, real-time sync and offline support.",
-        },
-        {
-          title: "Project Name 3",
-          description: "REST API with Java and Spring Boot. Relational database with SQL, JWT authentication and Swagger documentation.",
-        },
-      ],
+     ],
     },
+
     hobbies: {
       sectionTitle: "Hobbies",
       closeImage: "Close expanded image",
