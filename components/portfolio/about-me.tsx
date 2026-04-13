@@ -12,9 +12,8 @@ export function AboutMe() {
     <section id="sobre-mi" className="bg-card py-20 md:py-24">
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
 
-        {/* TITULO */}
         <h2 className="mb-10 text-3xl md:text-4xl font-bold text-center text-foreground">
-          SOBRE MÍ
+        {t.aboutMe.sectionLabel}
         </h2>
 
         <div className="grid items-center gap-8 md:grid-cols-[200px_1fr] md:gap-10">

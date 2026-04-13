@@ -21,14 +21,14 @@ export const translations = {
       myPhoto: "MI FOTO",
     },
     aboutMe: {
-      sectionLabel: "| Sobre mi",
+      sectionLabel: "SOBRE MI",
       jobTitle: "// Desarrollador Full Stack & Diseñador de Interfaces",
       aboutLabel: "Sobre mí:",
       aboutText: "soy un desarrollador con pasión por la tecnología y el diseño. Me especializo en crear aplicaciones web y móviles modernas, con experiencia en múltiples lenguajes y frameworks. Siempre en busca de nuevos retos y aprendizajes constantes.",
       myPhoto: "MI FOTO",
     },
     languages: {
-      sectionLabel: "| Lenguajes",
+      sectionLabel: "LENGUAJES",
       title: "Mis Lenguajes",
       items: [
         { name: "JavaScript", description: "Desarrollo frontend dinámico, manipulación del DOM, APIs y lógica de negocio." },
@@ -171,15 +171,14 @@ export const translations = {
       myPhoto: "MY PHOTO",
     },
     aboutMe: {
-      sectionLabel: "| About me",
+      sectionLabel: "ABOUT ME",
       jobTitle: "// Full Stack Developer & UI Designer",
       aboutLabel: "About me:",
       aboutText: "I'm a developer with a passion for technology and design. I specialize in building modern web and mobile applications, with experience in multiple languages and frameworks. Always looking for new challenges and continuous learning.",
       myPhoto: "MY PHOTO",
     },
     languages: {
-      sectionLabel: "| Languages",
-      title: "My Languages",
+      sectionLabel: "LANGUAGES",
       items: [
         { name: "JavaScript", description: "Dynamic frontend development, DOM manipulation, APIs and business logic." },
         { name: "TypeScript", description: "JS superset with static typing. Reduces errors and improves maintainability." },

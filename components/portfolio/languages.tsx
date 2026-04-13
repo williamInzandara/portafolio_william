@@ -17,12 +17,9 @@ export function Languages() {
   return (
     <section id="lenguajes" className="bg-background py-20 md:py-24">
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
-        <p className="mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-primary md:mb-10">
-          {t.languages.sectionLabel}
-        </p>
 
-        <h2 className="text-3xl font-black uppercase tracking-[0.03em] text-foreground sm:text-4xl md:text-6xl">
-          {t.languages.title}
+        <h2 className="mb-10 text-3xl md:text-4xl font-bold text-center text-foreground">
+        {t.languages.sectionLabel}
         </h2>
         <div className="mb-9 mt-3 h-[4px] w-16 rounded-full bg-primary" />
 
